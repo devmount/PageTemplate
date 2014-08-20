@@ -2,64 +2,64 @@
     PluginDraft CSS styles
 */
 
-.plugindraft {
+.pagetemplate {
 }
 
 /* NOTICE message */
-.plugindraft-notice {
+.pagetemplate-notice {
     display: table;
     margin: 2px 0;
     border: 1px solid #777;
     background-color: #eee;
 }
-.plugindraft-notice div {
+.pagetemplate-notice div {
     display: table-cell;
     padding: 2px 6px;
     color: white;
     background-color: #777;
     height: inherit;
 }
-.plugindraft-notice span {
+.pagetemplate-notice span {
     display: table-cell;
     padding: 2px 4px;
     color: #777;
 }
 
 /* SUCCESS message */
-.plugindraft-success {
+.pagetemplate-success {
     display: table;
     margin: 2px 0;
     border: 1px solid #2a0;
     background-color: #efe;
 }
-.plugindraft-success div {
+.pagetemplate-success div {
     display: table-cell;
     padding: 2px 6px;
     color: white;
     background-color: #2a0;
     height: inherit;
 }
-.plugindraft-success span {
+.pagetemplate-success span {
     display: table-cell;
     padding: 2px 4px;
     color: #2a0;
 }
 
 /* ERROR message */
-.plugindraft-error {
+.pagetemplate-error {
     display: table;
     margin: 2px 0;
     border: 1px solid #f33;
     background-color: #fee;
 }
-.plugindraft-error div {
+.pagetemplate-error div {
     display: table-cell;
     padding: 2px 6px;
     color: white;
     background-color: #f33;
     height: inherit;
 }
-.plugindraft-error span {
+.pagetemplate-error span {
     display: table-cell;
     padding: 2px 4px;
     color: #f33;

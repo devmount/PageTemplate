@@ -1,9 +1,9 @@
 <?php
 
 /**
- * moziloCMS Plugin: PluginDraft
+ * moziloCMS Plugin: PageTemplate
  *
- * Does something awesome!
+ * Renders a specific template for the single page, where this plugin is included
  *
  * PHP version 5
  *
@@ -11,9 +11,9 @@
  * @package  PHP_MoziloPlugins
  * @author   HPdesigner <mail@devmount.de>
  * @license  GPL v3+
- * @version  GIT: v0.x.jjjj-mm-dd
- * @link     https://github.com/devmount/PluginDraft
- * @link     http://devmount.de/Develop/moziloCMS/Plugins/PluginDraft.html
+ * @version  GIT: v0.1.2014-mm-dd
+ * @link     https://github.com/devmount/PageTemplate
+ * @link     http://devmount.de/Develop/moziloCMS/Plugins/PageTemplate.html
  * @see      Verse
  *           – The Bible
  *
@@ -28,15 +28,15 @@ if (!defined('IS_CMS')) {
 }
 
 /**
- * PluginDraft Class
+ * PageTemplate Class
  *
  * @category PHP
  * @package  PHP_MoziloPlugins
  * @author   HPdesigner <mail@devmount.de>
  * @license  GPL v3+
- * @link     https://github.com/devmount/PluginDraft
+ * @link     https://github.com/devmount/PageTemplate
  */
-class PluginDraft extends Plugin
+class PageTemplate extends Plugin
 {
     // language
     private $_admin_lang;
@@ -45,12 +45,12 @@ class PluginDraft extends Plugin
     // plugin information
     const PLUGIN_AUTHOR  = 'HPdesigner';
     const PLUGIN_DOCU
-        = 'http://devmount.de/Develop/moziloCMS/Plugins/PluginDraft.html';
-    const PLUGIN_TITLE   = 'PluginDraft';
-    const PLUGIN_VERSION = 'v0.x.jjjj-mm-dd';
+        = 'http://devmount.de/Develop/moziloCMS/Plugins/PageTemplate.html';
+    const PLUGIN_TITLE   = 'PageTemplate';
+    const PLUGIN_VERSION = 'v0.1.2014-mm-dd';
     const MOZILO_VERSION = '2.0';
     private $_plugin_tags = array(
-        'tag1' => '{PluginDraft|type|<param1>|<param2>}',
+        'tag1' => '{PageTemplate|type|<param1>|<param2>}',
     );
 
     const LOGO_URL = 'http://media.devmount.de/logo_pluginconf.png';
@@ -142,12 +142,12 @@ class PluginDraft extends Plugin
                 : $this->settings->get($elem);
         }
 
-        // include jquery and PluginDraft javascript
+        // include jquery and PageTemplate javascript
         $syntax->insert_jquery_in_head('jquery');
         $syntax->insert_in_head(
             '<script type="text/javascript" src="'
             . $this->PLUGIN_SELF_URL
-            . 'js/PluginDraft.js"></script>'
+            . 'js/PageTemplate.js"></script>'
         );
 
         // initialize return content, begin plugin content
@@ -261,7 +261,7 @@ class PluginDraft extends Plugin
 
         // build Template
         $template .= '
-            <div class="plugindraft-admin-header">
+            <div class="pagetemplate-admin-header">
             <span>'
                 . $this->_admin_lang->getLanguageValue(
                     'admin_header',
@@ -273,21 +273,21 @@ class PluginDraft extends Plugin
             </a>
             </div>
         </li>
-        <li class="mo-in-ul-li ui-widget-content plugindraft-admin-li">
-            <div class="plugindraft-admin-subheader">'
+        <li class="mo-in-ul-li ui-widget-content pagetemplate-admin-li">
+            <div class="pagetemplate-admin-subheader">'
             . $this->_admin_lang->getLanguageValue('admin_test')
             . '</div>
-            <div class="plugindraft-single-conf">
+            <div class="pagetemplate-single-conf">
                 {test1_text}
                 {test1_description}
-                <span class="plugindraft-admin-default">
+                <span class="pagetemplate-admin-default">
                     [' . /*$this->_confdefault['test1'][0] .*/']
                 </span>
             </div>
-            <div class="plugindraft-single-conf">
+            <div class="pagetemplate-single-conf">
                 {test2_text}
                 {test2_description}
-                <span class="plugindraft-admin-default">
+                <span class="pagetemplate-admin-default">
                     [' . /*$this->_confdefault['test2'][0] .*/']
                 </span>
         ';
