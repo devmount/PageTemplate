@@ -127,12 +127,12 @@ class PageTemplate extends Plugin
             . '.txt'
         );
 
-        // get language labels
-        $label = $this->_cms_lang->getLanguageValue('label');
+        // get param
+        $template_name = trim($value);
 
-        // get params
-        list($param_, $param_, $param_)
-            = $this->makeUserParaArray($value, false, '|');
+        // TODO: check if template name exists
+
+        $template_dir = LAYOUT_DIR_NAME . '/' . $template_name;
 
         // get conf and set default
         $conf = array();
@@ -142,23 +142,25 @@ class PageTemplate extends Plugin
                 : $this->settings->get($elem);
         }
 
-        // include jquery and PageTemplate javascript
-        $syntax->insert_jquery_in_head('jquery');
-        $syntax->insert_in_head(
-            '<script type="text/javascript" src="'
-            . $this->PLUGIN_SELF_URL
-            . 'js/PageTemplate.js"></script>'
-        );
+        // template.html laden
+        $template_file = $template_dir . '/template.html';
+        if (!$file = @fopen($template_file, 'r')) {
+            // TODO: error message: file cannot be opened
+        }
+        $template = fread($file, filesize($template_file));
+        fclose($file);
 
-        // initialize return content, begin plugin content
-        $content = '<!-- BEGIN ' . self::PLUGIN_TITLE . ' plugin content --> ';
+        // replace {CONTENT} in template with current content
+        $content = $syntax->content;
+        preg_match("/---content~~~(.*)~~~content---/Umsi", $content, $match);
+        $content = $match[0];
+        $template = str_replace('{LAYOUT_DIR}', URL_BASE . $template_dir, $template);
+        $content = str_replace('{CONTENT}', $content, $template);
 
-        // do something awesome here! ...
+        // return new rendered content
+        $syntax->content = $content;
+        return;
 
-        // end plugin content
-        $content .= '<!-- END ' . self::PLUGIN_TITLE . ' plugin content --> ';
-
-        return $content;
     }
 
     /**
@@ -260,39 +262,39 @@ class PageTemplate extends Plugin
         $template = '<style>' . $admin_css . '</style>';
 
         // build Template
-        $template .= '
-            <div class="pagetemplate-admin-header">
-            <span>'
-                . $this->_admin_lang->getLanguageValue(
-                    'admin_header',
-                    self::PLUGIN_TITLE
-                )
-            . '</span>
-            <a href="' . self::PLUGIN_DOCU . '" target="_blank">
-            <img style="float:right;" src="' . self::LOGO_URL . '" />
-            </a>
-            </div>
-        </li>
-        <li class="mo-in-ul-li ui-widget-content pagetemplate-admin-li">
-            <div class="pagetemplate-admin-subheader">'
-            . $this->_admin_lang->getLanguageValue('admin_test')
-            . '</div>
-            <div class="pagetemplate-single-conf">
-                {test1_text}
-                {test1_description}
-                <span class="pagetemplate-admin-default">
-                    [' . /*$this->_confdefault['test1'][0] .*/']
-                </span>
-            </div>
-            <div class="pagetemplate-single-conf">
-                {test2_text}
-                {test2_description}
-                <span class="pagetemplate-admin-default">
-                    [' . /*$this->_confdefault['test2'][0] .*/']
-                </span>
-        ';
+        // $template .= '
+        //     <div class="pagetemplate-admin-header">
+        //     <span>'
+        //         . $this->_admin_lang->getLanguageValue(
+        //             'admin_header',
+        //             self::PLUGIN_TITLE
+        //         )
+        //     . '</span>
+        //     <a href="' . self::PLUGIN_DOCU . '" target="_blank">
+        //     <img style="float:right;" src="' . self::LOGO_URL . '" />
+        //     </a>
+        //     </div>
+        // </li>
+        // <li class="mo-in-ul-li ui-widget-content pagetemplate-admin-li">
+        //     <div class="pagetemplate-admin-subheader">'
+        //     . $this->_admin_lang->getLanguageValue('admin_test')
+        //     . '</div>
+        //     <div class="pagetemplate-single-conf">
+        //         {test1_text}
+        //         {test1_description}
+        //         <span class="pagetemplate-admin-default">
+        //             [' . /*$this->_confdefault['test1'][0] .*/']
+        //         </span>
+        //     </div>
+        //     <div class="pagetemplate-single-conf">
+        //         {test2_text}
+        //         {test2_description}
+        //         <span class="pagetemplate-admin-default">
+        //             [' . /*$this->_confdefault['test2'][0] .*/']
+        //         </span>
+        // ';
 
-        $config['--template~~'] = $template;
+        // $config['--template~~'] = $template;
 
         return $config;
     }
