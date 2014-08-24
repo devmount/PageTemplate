@@ -69,43 +69,43 @@ class PageTemplate extends Plugin
      *      select   => default, type, descriptions, multiselect
      */
     private $_confdefault = array(
-        'text' => array(
-            'string',
-            'text',
-            '100',
-            '5',
-            "/^[0-9]{1,3}$/",
-        ),
-        'textarea' => array(
-            'string',
-            'textarea',
-            '10',
-            '10',
-            "/^[a-zA-Z0-9]{1,10}$/",
-        ),
-        'password' => array(
-            'string',
-            'password',
-            '100',
-            '5',
-            "/^[a-zA-Z0-9]{8,20}$/",
-            true,
-        ),
-        'check' => array(
-            true,
-            'check',
-        ),
-        'radio' => array(
-            'red',
-            'radio',
-            array('red', 'green', 'blue'),
-        ),
-        'select' => array(
-            'bike',
-            'select',
-            array('car','bike','plane'),
-            false,
-        ),
+        // 'text' => array(
+        //     'string',
+        //     'text',
+        //     '100',
+        //     '5',
+        //     "/^[0-9]{1,3}$/",
+        // ),
+        // 'textarea' => array(
+        //     'string',
+        //     'textarea',
+        //     '10',
+        //     '10',
+        //     "/^[a-zA-Z0-9]{1,10}$/",
+        // ),
+        // 'password' => array(
+        //     'string',
+        //     'password',
+        //     '100',
+        //     '5',
+        //     "/^[a-zA-Z0-9]{8,20}$/",
+        //     true,
+        // ),
+        // 'check' => array(
+        //     true,
+        //     'check',
+        // ),
+        // 'radio' => array(
+        //     'red',
+        //     'radio',
+        //     array('red', 'green', 'blue'),
+        // ),
+        // 'select' => array(
+        //     'bike',
+        //     'select',
+        //     array('car','bike','plane'),
+        //     false,
+        // ),
     );
 
     /**
