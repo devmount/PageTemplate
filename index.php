@@ -356,6 +356,9 @@ class PageTemplate extends Plugin
         foreach ($this->_plugin_tags as $key => $tag) {
             $tags[$tag] = $this->_admin_lang->getLanguageValue('tag_' . $key);
         }
+        // TODO: get template list
+        // $existing_templates = getDirAsArray(LAYOUT_DIR_NAME);
+        // $templates = implode(', ', $existing_templates);
 
         $info = array(
             '<b>' . self::PLUGIN_TITLE . '</b> ' . self::PLUGIN_VERSION,
@@ -363,6 +366,7 @@ class PageTemplate extends Plugin
             $this->_admin_lang->getLanguageValue(
                 'description',
                 htmlspecialchars($this->_plugin_tags['tag1'])
+                // $templates
             ),
             self::PLUGIN_AUTHOR,
             self::PLUGIN_DOCU,
