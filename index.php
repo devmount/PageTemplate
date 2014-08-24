@@ -14,7 +14,8 @@
  * @version  GIT: v0.1.2014-mm-dd
  * @link     https://github.com/devmount/PageTemplate
  * @link     http://devmount.de/Develop/moziloCMS/Plugins/PageTemplate.html
- * @see      Verse
+ * @see      Therefore, if anyone is in Christ, he is a new creation; the old has
+ *           gone, the new has come!
  *           – The Bible
  *
  * Plugin created by DEVMOUNT
@@ -50,7 +51,7 @@ class PageTemplate extends Plugin
     const PLUGIN_VERSION = 'v0.1.2014-mm-dd';
     const MOZILO_VERSION = '2.0';
     private $_plugin_tags = array(
-        'tag1' => '{PageTemplate|type|<param1>|<param2>}',
+        'tag1' => '{PageTemplate|type|<template>}',
     );
 
     const LOGO_URL = 'http://media.devmount.de/logo_pluginconf.png';
@@ -130,9 +131,22 @@ class PageTemplate extends Plugin
         // get param
         $template_name = trim($value);
 
-        // TODO: check if template name exists
-
         $template_dir = LAYOUT_DIR_NAME . '/' . $template_name;
+
+        // check if template name exists
+        $existing_templates = getDirAsArray(LAYOUT_DIR_NAME);
+        if (!in_array($template_name, $existing_templates)) {
+            // return error message
+            $existing_templates_list = implode(', ', $existing_templates);
+            return $this->throwMessage(
+                $this->_cms_lang->getLanguageValue(
+                    'error_nonexisting_template',
+                    $template_name,
+                    $existing_templates_list
+                ),
+                'ERROR'
+            );
+        }
 
         // get conf and set default
         $conf = array();
@@ -145,7 +159,14 @@ class PageTemplate extends Plugin
         // template.html laden
         $template_file = $template_dir . '/template.html';
         if (!$file = @fopen($template_file, 'r')) {
-            // TODO: error message: file cannot be opened
+            // return error message: file cannot be opened
+            return $this->throwMessage(
+                $this->_cms_lang->getLanguageValue(
+                    'error_open_file',
+                    $template_file
+                ),
+                'ERROR'
+            );
         }
         $template = fread($file, filesize($template_file));
         fclose($file);
