@@ -11,7 +11,7 @@
  * @package  PHP_MoziloPlugins
  * @author   HPdesigner <mail@devmount.de>
  * @license  GPL v3+
- * @version  GIT: v0.1.2014-mm-dd
+ * @version  GIT: v0.1.2014-08-24
  * @link     https://github.com/devmount/PageTemplate
  * @link     http://devmount.de/Develop/moziloCMS/Plugins/PageTemplate.html
  * @see      Therefore, if anyone is in Christ, he is a new creation; the old has
@@ -48,7 +48,7 @@ class PageTemplate extends Plugin
     const PLUGIN_DOCU
         = 'http://devmount.de/Develop/moziloCMS/Plugins/PageTemplate.html';
     const PLUGIN_TITLE   = 'PageTemplate';
-    const PLUGIN_VERSION = 'v0.1.2014-mm-dd';
+    const PLUGIN_VERSION = 'v0.1.2014-08-24';
     const MOZILO_VERSION = '2.0';
     private $_plugin_tags = array(
         'tag1' => '{PageTemplate|type|<template>}',
