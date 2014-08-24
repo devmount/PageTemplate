@@ -1,2 +1,3 @@
-error     = Error
-error_sth = ...
+error                      = Error
+error_nonexisting_template = A template "{PARAM1}" does not exist. Available templates are: {PARAM2}
+error_open_file            = The file "{PARAM1}" could not be opened. Please check file permissions.
