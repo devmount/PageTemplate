@@ -1,9 +1,9 @@
 PageTemplate
-===========
+============
 
 A Plugin for moziloCMS 2.0
 
-This plugin draft can be used for easier moziloCMS plugin development.
+This plugin renders a specific template for only the single page, where this plugin is included.
 
 ## Installation
 #### With moziloCMS installer
@@ -16,14 +16,13 @@ Installing a plugin manually requires FTP Access.
 - Go to the backend tab *Plugins* and activate the now listed new PageTemplate plugin
 
 ## Syntax
-```{PageTemplate|<param1>|<param2>}```
-Here comes the general description of the plugin tag.
+```{PageTemplate|<template>}```
+Is this plugin tag placed on a content page, that single page will be rendered coompletely in the given template.
 
-1. Parameter ```<param1>```: Short description of parameter 1.
-2. Parameter ```<param2>```: Short description of parameter 2.
+1. Parameter ```<template>```: The template name of the template which shall be used for the current content page.
 
 ## License
-This Plugin is distributed under *GNU General Public License, Version 3* (see LICENSE) or, at your choice, any further version.
+This Plugin is distributed under *GNU General Public License, Version 3* (see LICENSE) or - at your choice - any further version.
 
 ## Documentation
 A detailed documentation and demo can be found on DEVMOUNT's website:
