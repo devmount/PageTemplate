@@ -1,3 +1,4 @@
 tag          = Renders a specific template for the single page, where this plugin is included
 description  = Renders a specific template for the single page, where this plugin is included.<br /><br /><span class='plugindraft-bold'>Use:</span><br /><span class='plugindraft-code'>{PARAM1}</span> Is this plugin tag placed on a content page, that single page will be rendered coompletely in the given template.<br /><br /><span class='plugindraft-pre'>&lt;template&gt;: </span>The template name of the template which shall be used for the current content page.<br /><br /><span class='plugindraft-bold'>Documentation:</span><br />A detailed documentation can be found on <span class='plugindraft-italic'>devmount.de </span> (link above).
+on_devmount  = on devmount.de
 admin_header = {PARAM1} Plugin Configuration
