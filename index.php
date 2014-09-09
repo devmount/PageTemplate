@@ -52,7 +52,7 @@ class PageTemplate extends Plugin
         = 'http://devmount.de/Develop/moziloCMS/Plugins/PageTemplate.html';
 
     private $_plugin_tags = array(
-        'tag1' => '{PageTemplate|type|<template>}',
+        'tag1' => '{PageTemplate|<template>}',
     );
 
     const LOGO_URL = 'http://media.devmount.de/logo_pluginconf.png';
