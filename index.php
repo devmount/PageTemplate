@@ -172,10 +172,31 @@ class PageTemplate extends Plugin
         $template = fread($file, filesize($template_file));
         fclose($file);
 
+        // search content
+        $search =
+            '<form
+                accept-charset="UTF-8"
+                method="get"
+                action="/index.html?draft=true"
+                class="searchform"
+            >
+                <fieldset id="searchfieldset">
+                    <input type="hidden" name="action" value="search">
+                    <input type="text" name="search" value="" class="searchtextfield">
+                    <input
+                        type="image"
+                        src="{LAYOUT_DIR}/grafiken/searchicon.gif"
+                        alt="Suchen"
+                        class="searchbutton"
+                    >
+                </fieldset>
+            </form>';
+
         // replace {CONTENT} in template with current content
         $content = $syntax->content;
         preg_match("/---content~~~(.*)~~~content---/Umsi", $content, $match);
         $content = $match[0];
+        $template = str_replace('{SEARCH}', $search, $template);
         $template = str_replace('{LAYOUT_DIR}', URL_BASE . $template_dir, $template);
         $content = str_replace('{CONTENT}', $content, $template);
 
@@ -366,7 +387,7 @@ class PageTemplate extends Plugin
             self::MOZILO_VERSION,
             $this->_admin_lang->getLanguageValue(
                 'description',
-                htmlspecialchars($this->_plugin_tags['tag1'])
+                htmlspecialchars($this->_plugin_tags['tag1'], ENT_COMPAT, 'UTF-8')
                 // $templates
             ),
             self::PLUGIN_AUTHOR,
