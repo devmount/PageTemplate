@@ -12,7 +12,7 @@
  * @author   DEVMOUNT <mail@devmount.de>
  * @license  GPL v3+
  * @version  GIT: v0.1.2014-08-24
- * @link     https://github.com/devmount/PageTemplate
+ * @link     https://github.com/devmount-mozilo/PageTemplate
  * @link     http://devmount.de/Develop/moziloCMS/Plugins/PageTemplate.html
  * @see      Therefore, if anyone is in Christ, he is a new creation; the old has
  *           gone, the new has come!
@@ -35,7 +35,7 @@ if (!defined('IS_CMS')) {
  * @package  PHP_MoziloPlugins
  * @author   DEVMOUNT <mail@devmount.de>
  * @license  GPL v3+
- * @link     https://github.com/devmount/PageTemplate
+ * @link     https://github.com/devmount-mozilo/PageTemplate
  */
 class PageTemplate extends Plugin
 {
