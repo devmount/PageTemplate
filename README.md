@@ -16,7 +16,9 @@ Installing a plugin manually requires FTP Access.
 - Go to the backend tab *Plugins* and activate the now listed new PageTemplate plugin
 
 ## Syntax
-```{PageTemplate|<template>}```
+```
+{PageTemplate|<template>}
+```
 Is this plugin tag placed on a content page, that single page will be rendered coompletely in the given template.
 
 1. Parameter ```<template>```: The template name of the template which shall be used for the current content page.
@@ -26,4 +28,4 @@ This Plugin is distributed under *GNU General Public License, Version 3* (see LI
 
 ## Documentation
 A detailed documentation and demo can be found on DEVMOUNT's website:
-http://devmount.de/Develop/moziloCMS/Plugins/PageTemplate.html
+http://t.devmount.de/Develop/moziloCMS/Plugins/PageTemplate.html
