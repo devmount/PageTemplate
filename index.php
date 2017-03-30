@@ -12,8 +12,7 @@
  * @author   DEVMOUNT <mail@devmount.de>
  * @license  GPL v3+
  * @version  GIT: v0.1.2014-08-24
- * @link     https://github.com/devmount-mozilo/PageTemplate
- * @link     http://devmount.de/Develop/moziloCMS/Plugins/PageTemplate.html
+ * @link     https://github.com/devmount-mozilo/PageTemplate/wiki/Dokumentation
  * @see      Therefore, if anyone is in Christ, he is a new creation; the old has
  *           gone, the new has come!
  *           – The Bible
@@ -49,7 +48,7 @@ class PageTemplate extends Plugin
     const PLUGIN_VERSION = 'v0.1.2014-08-24';
     const MOZILO_VERSION = '2.0';
     const PLUGIN_DOCU
-        = 'http://devmount.de/Develop/moziloCMS/Plugins/PageTemplate.html';
+        = 'https://github.com/devmount-mozilo/PageTemplate/wiki/Dokumentation';
 
     private $_plugin_tags = array(
         'tag1' => '{PageTemplate|<template>}',
